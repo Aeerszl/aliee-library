@@ -1,3 +1,8 @@
+# Product Card ve Detail Alanlarında Adet Fiyatı ile Toptan Fiyatın Yerini Değiştir Göster
+
+## Kod
+
+```php
 add_filter('woocommerce_get_price_html', 'woodmart_swap_unit_and_box_price', 99, 2);
 function woodmart_swap_unit_and_box_price($price, $product) {
 
@@ -73,3 +78,4 @@ $adet_fiyat = $koli_fiyat / $koli_adedi;
 
     return ob_get_clean();
 }
+```

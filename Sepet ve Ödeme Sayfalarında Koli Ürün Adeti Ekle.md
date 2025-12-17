@@ -1,3 +1,8 @@
+# Sepet ve Ödeme Sayfalarında Koli Ürün Adeti Ekle
+
+## Kod
+
+```php
 add_filter('woocommerce_cart_item_name', 'woodmart_cart_koli_text', 10, 3);
 function woodmart_cart_koli_text($name, $cart_item, $cart_item_key) {
 
@@ -12,3 +17,4 @@ function woodmart_cart_koli_text($name, $cart_item, $cart_item_key) {
 
     return $name . '<br><small>📦 1 koli = ' . $koli_adedi . ' adet</small>';
 }
+```

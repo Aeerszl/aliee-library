@@ -1,3 +1,8 @@
+# Admin Koli Adeti Kaydet
+
+## Kod
+
+```php
 add_action('woocommerce_admin_process_product_object', function ($product) {
 
     if (isset($_POST['_koli_adedi'])) {
@@ -15,3 +20,4 @@ function save_koli_adedi_variations($variation_id, $i) {
         update_post_meta($variation_id, '_koli_adedi', $koli_adedi);
     }
 }
+```
