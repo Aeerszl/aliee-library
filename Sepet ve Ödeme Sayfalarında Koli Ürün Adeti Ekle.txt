@@ -1,0 +1,14 @@
+add_filter('woocommerce_cart_item_name', 'woodmart_cart_koli_text', 10, 3);
+function woodmart_cart_koli_text($name, $cart_item, $cart_item_key) {
+
+    // Ürün nesnesi
+    $product = $cart_item['data'];
+
+    // Üründen koli adedini al (yoksa 8)
+    $koli_adedi = (int) $product->get_meta('_koli_adedi');
+    if ($koli_adedi <= 0) {
+        $koli_adedi = 8;
+    }
+
+    return $name . '<br><small>📦 1 koli = ' . $koli_adedi . ' adet</small>';
+}

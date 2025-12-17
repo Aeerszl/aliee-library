@@ -1,0 +1,75 @@
+add_filter('woocommerce_get_price_html', 'woodmart_swap_unit_and_box_price', 99, 2);
+function woodmart_swap_unit_and_box_price($price, $product) {
+
+    if (is_admin()) {
+        return $price;
+    }
+
+  $koli_adedi = 0;
+
+// 🔴 VARIABLE (ilk açılış)
+if ($product->is_type('variable')) {
+
+    $variations = $product->get_available_variations();
+
+    if (!empty($variations)) {
+        $first_variation_id = $variations[0]['variation_id'];
+
+        $koli_adedi = (int) get_post_meta($first_variation_id, '_koli_adedi', true);
+
+        // varyasyonda yoksa parent
+        if ($koli_adedi <= 0) {
+            $koli_adedi = (int) get_post_meta($product->get_id(), '_koli_adedi', true);
+        }
+    }
+
+}
+// 🔵 SIMPLE
+else {
+    $koli_adedi = (int) get_post_meta($product->get_id(), '_koli_adedi', true);
+}
+
+// Varsayılan
+if ($koli_adedi <= 0) {
+    $koli_adedi = 8;
+}
+
+// Koli fiyatı
+$koli_fiyat = (float) $product->get_price();
+if ($koli_fiyat <= 0) {
+    return $price;
+}
+
+// Adet fiyatı
+$adet_fiyat = $koli_fiyat / $koli_adedi;
+
+
+    ob_start();
+    ?>
+    <div class="price-wrapper-custom">
+
+        <!-- ADET FİYATI (ANA FİYAT) -->
+        <?php if ( is_user_logged_in() ) : ?>
+            <div class="unit-main-price">
+              Adet Fiyatı:  <?php echo wc_price($adet_fiyat); ?>
+            </div>
+        <?php else : ?>
+            <span class="unit-main-price hidden-price"></span>
+        <?php endif; ?>
+
+
+        <!-- KOLİ FİYATI (ALTTA KÜÇÜK) -->
+			<div class="box-sub-price" style="font-size:12px;color:#777;">
+    			<?php if ( is_user_logged_in() ) : ?>
+        			Koli Fiyatı (<?php echo $koli_adedi; ?> adet):
+    			<?php endif; ?>
+    			<?php echo $price; ?>
+			</div>
+			
+
+
+    </div>
+    <?php
+
+    return ob_get_clean();
+}
