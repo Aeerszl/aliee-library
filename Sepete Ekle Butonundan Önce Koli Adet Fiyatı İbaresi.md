@@ -1,3 +1,11 @@
+# Sepete Ekle Butonundan Önce Koli Adet Fiyatı İbaresi
+
+## Önizleme
+![Koli Bilgisi Önizleme](images/lib-1   sepetönce.png)
+
+## Kod
+
+```php
 add_action('woocommerce_single_product_summary', 'woodmart_koli_info', 25);
 function woodmart_koli_info() {
     global $product;
@@ -51,3 +59,4 @@ add_action('wp_footer', function () {
     </script>
     <?php
 });
+```
