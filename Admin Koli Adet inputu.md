@@ -1,3 +1,11 @@
+# Admin Koli Adet Inputu
+
+## Önizleme
+![Admin Koli Adet Input](images/lib-koliadet.png)
+
+## Kod
+
+```php
 add_action('woocommerce_product_options_general_product_data', function () {
 
     global $post;
@@ -44,3 +52,4 @@ function add_koli_adedi_to_variations($loop, $variation_data, $variation) {
         'wrapper_class'     => 'form-row form-row-first'
     ]);
 }
+```

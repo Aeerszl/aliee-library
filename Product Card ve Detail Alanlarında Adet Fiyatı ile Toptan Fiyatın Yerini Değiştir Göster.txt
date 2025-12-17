@@ -62,7 +62,7 @@ $adet_fiyat = $koli_fiyat / $koli_adedi;
 			<div class="box-sub-price" style="font-size:12px;color:#777;">
     			<?php if ( is_user_logged_in() ) : ?>
         			Koli Fiyatı (<?php echo $koli_adedi; ?> adet):
-    			<?php endif; ?>
+    			<?php endif; ?>// temadan ayarlandığı için fiyatı devamlı göster dedim
     			<?php echo $price; ?>
 			</div>
 			
