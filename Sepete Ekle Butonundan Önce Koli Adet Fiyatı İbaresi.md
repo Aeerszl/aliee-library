@@ -1,7 +1,7 @@
 # Sepete Ekle Butonundan Önce Koli Adet Fiyatı İbaresi
 
 ## Önizleme
-![Koli Bilgisi Önizleme](images/lib-1   sepetönce.png)
+![Koli Bilgisi Önizleme](images/lib-sepetönce.png)
 
 ## Kod
 
