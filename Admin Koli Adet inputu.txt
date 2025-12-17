@@ -1,0 +1,46 @@
+add_action('woocommerce_product_options_general_product_data', function () {
+
+    global $post;
+
+    // Kaydedilmiş değer varsa al, yoksa 8
+    $koli_adedi = get_post_meta($post->ID, '_koli_adedi', true);
+    if ($koli_adedi === '') {
+        $koli_adedi = 8;
+    }
+
+    woocommerce_wp_text_input([
+        'id'                => '_koli_adedi',
+        'label'             => 'Koli İçi Adet',
+        'description'       => '1 kolide kaç adet ürün var?',
+        'type'              => 'number',
+        'desc_tip'          => true,
+        'custom_attributes' => [
+            'min'  => '1',
+            'step' => '1'
+        ],
+        'value' => $koli_adedi
+    ]);
+});
+
+//varyasyonlu ürünlerde
+add_action('woocommerce_variation_options_pricing', 'add_koli_adedi_to_variations', 10, 3);
+function add_koli_adedi_to_variations($loop, $variation_data, $variation) {
+
+    $koli_adedi = get_post_meta($variation->ID, '_koli_adedi', true);
+    if ($koli_adedi === '') {
+        $koli_adedi = 8;
+    }
+
+    woocommerce_wp_text_input([
+        'id'                => "_koli_adedi[$loop]",
+        'name'              => "_koli_adedi[$loop]",
+        'value'             => $koli_adedi,
+        'label'             => 'Koli İçi Adet',
+        'type'              => 'number',
+        'custom_attributes' => [
+            'min'  => '1',
+            'step' => '1'
+        ],
+        'wrapper_class'     => 'form-row form-row-first'
+    ]);
+}
