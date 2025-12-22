@@ -1,6 +1,6 @@
 # StackCards
 
-<video src="images/stackcards.mp4" controls width="100%"></video>
+![StackCards Demo](images/Lib-StackCards.gif)
 
 // Sayfaid wordpress için
 
