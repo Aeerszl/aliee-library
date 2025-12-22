@@ -46,4 +46,4 @@ adım-3: gelişmiş > css sınıfları > card1 yaz Z-Endeksi 1 yap
 adım-4: gelişmiş > css sınıfları > card2 yaz Z-Endeksi 2 yap
 adım-5: gelişmiş > css sınıfları > card3 yaz Z-Endeksi 3 yap
 adım-6: gelişmiş > css sınıfları > card4 yaz Z-Endeksi 4 yap   bunlar cardların üstüste gelme katmanını ayarlar 
-adım-7: cardalara resim eklemek içim biçem göresel seç de
+adım-7: cardalara resim eklemek içim biçem göresel seç d 
