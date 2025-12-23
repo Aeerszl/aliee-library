@@ -1,6 +1,6 @@
 # StackCards
 
-![StackCards Demo](images/Lib-StackCards.gif)
+![StackCards Demo](../images/Lib-StackCards.gif)
 
 // Sayfa_id wordpress için
 
